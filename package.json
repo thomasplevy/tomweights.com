@@ -1,0 +1,24 @@
+{
+  "name": "tomweights",
+  "version": "0.0.1",
+  "description": "My website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasplevy/tomweights.com.git"
+  },
+  "author": "Thomas Patrick Levy <t.levy@moose.town>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/thomasplevy/tomweights.com/issues"
+  },
+  "homepage": "https://github.com/thomasplevy/tomweights.com#readme",
+  "scripts": {
+    "inline-source": "node inline-source.js",
+    "serve": "http-server -p 8888 static/"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.2.12",
+    "http-server": "^14.1.1",
+    "inline-source": "^8.0.2"
+  }
+}
