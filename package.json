@@ -13,12 +13,13 @@
   },
   "homepage": "https://github.com/thomasplevy/tomweights.com#readme",
   "scripts": {
-    "inline-source": "node inline-source.js",
+    "optimize": "node optimize.js",
     "serve": "http-server -p 8888 static/"
   },
   "devDependencies": {
     "fast-glob": "^3.2.12",
     "http-server": "^14.1.1",
-    "inline-source": "^8.0.2"
+    "inline-source": "^8.0.2",
+    "node-smushit": "^0.5.1"
   }
 }

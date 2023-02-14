@@ -1,6 +1,6 @@
-const { Console } = require('console');
 const { inlineSource } = require( 'inline-source' ),
     glob           = require( 'fast-glob' ),
+    smushit        = require( 'node-smushit' ),
     fs             = require( 'fs' ),
     path           = require( 'path' ); 
 
@@ -54,5 +54,10 @@ const staticDir    = path.resolve( 'static' ),
         fs.unlinkSync( file )
     } );  
     
+    smushit.smushit( staticDir, {
+        recursive: true,
+        service: 'http://api.resmush.it/ws.php',
+    } );
+
     deleteEmptyDirs( staticDir );
 })();
