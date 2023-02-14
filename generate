@@ -37,6 +37,8 @@ done
 # Regenerate the site.
 $WP simply-static generate --delivery=local
 
-
 # Remove tmp dir.
 rm -rf $TMP_DIR
+
+# Optimize
+npm run inline-source
