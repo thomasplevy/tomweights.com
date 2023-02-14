@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Converts the WordPress site to static HTML.
+
+WP="lando wp"
+
+STATIC_DIR="static"
+TMP_DIR="tmp"
+CWD=$( cwd )
+
+PERMANENT_FILES=( "CNAME" )
+
+# Ensure the tmp dir exists.
+if [ ! -d "$TMP_DIR" ]; then
+    mkdir $TMP_DIR
+fi
+
+# Move permanent files into the tmp dir
+for file in ${PERMANENT_FILES[@]}; do
+    file_path="$STATIC_DIR/$file"
+    if [ -f "$file_path" ]; then
+        mv $file_path $TMP_DIR
+    fi    
+done
+
+# Empty the static dir.
+rm -rf $STATIC_DIR/*
+
+# Restore the permanent files.
+for file in ${PERMANENT_FILES[@]}; do
+    file_path="$TMP_DIR/$file"
+    if [ -f "$file_path" ]; then
+        mv $file_path $STATIC_DIR
+    fi    
+done
+
+# Regenerate the site.
+$WP simply-static generate --delivery=local
+
+
+# Remove tmp dir.
+rm -rf $TMP_DIR

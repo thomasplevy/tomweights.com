@@ -1,0 +1,16 @@
+name: tomweights
+
+recipe: wordpress
+
+config:
+  php: '8.0'
+  webroot: ./htdocs
+  database: mariadb
+  xdebug: develop,debug
+  config:
+    via: nginx
+    php: php.ini
+
+services:
+  mailhog:
+    type: mailhog

@@ -1,0 +1,5 @@
+# Exclude secrets.
+.env
+
+# Exclude WordPress core files.
+htdocs
