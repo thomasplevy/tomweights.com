@@ -13,6 +13,8 @@
   },
   "homepage": "https://github.com/thomasplevy/tomweights.com#readme",
   "scripts": {
+    "build": "npm run generate && npm run optimize",
+    "generate": "./generate",
     "optimize": "node optimize.js",
     "serve": "http-server -p 8888 static/"
   },
