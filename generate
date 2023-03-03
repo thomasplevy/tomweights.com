@@ -6,7 +6,7 @@ WP="lando wp"
 
 STATIC_DIR="static"
 TMP_DIR="tmp"
-CWD=$( cwd )
+CWD=$( pwd )
 
 PERMANENT_FILES=( "CNAME" )
 
@@ -39,6 +39,3 @@ $WP simply-static generate --delivery=local
 
 # Remove tmp dir.
 rm -rf $TMP_DIR
-
-# Optimize
-npm run inline-source
