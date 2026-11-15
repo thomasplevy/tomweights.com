@@ -11,5 +11,15 @@ eleventyExcludeFromCollections: true
 		<description>{{ site.description }}</description>
 		<language>{{ site.language }}</language>
 		<generator>Eleventy</generator>
+		{% for post in collections.posts %}
+		<item>
+			<title>{{ post.data.title | xmlEscape }}</title>
+			<link>{{ site.url }}{{ post.url }}</link>
+			<guid>{{ site.url }}{{ post.url }}</guid>
+			<pubDate>{{ post.date | rfc822 }}</pubDate>
+			<description>{{ post.data.description | xmlEscape }}</description>
+		</item>
+		{% endfor %}
 	</channel>
 </rss>
+

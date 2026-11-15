@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<main id="content" class="content content--page">
+	<div class="page-header">
+		<h1>{{ title }}</h1>
+	</div>
+	<div class="entry">
+		<p class="post-meta">
+			<time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time>
+		</p>
+		{{ content | safe }}
+	</div>
+</main>

@@ -15,6 +15,34 @@ module.exports = function (eleventyConfig) {
 		}
 	});
 
+	eleventyConfig.addCollection("posts", (api) =>
+		api.getFilteredByGlob("src/blog/posts/*.md").sort((a, b) => b.date - a.date)
+	);
+
+	eleventyConfig.addFilter("readableDate", (dateObj) =>
+		new Intl.DateTimeFormat("en-US", {
+			year: "numeric",
+			month: "long",
+			day: "numeric",
+			timeZone: "UTC",
+		}).format(dateObj)
+	);
+
+	eleventyConfig.addFilter("htmlDate", (dateObj) =>
+		new Date(dateObj).toISOString().slice(0, 10)
+	);
+
+	eleventyConfig.addFilter("rfc822", (dateObj) => new Date(dateObj).toUTCString());
+
+	eleventyConfig.addFilter("xmlEscape", (value) =>
+		String(value ?? "")
+			.replaceAll("&", "&amp;")
+			.replaceAll("<", "&lt;")
+			.replaceAll(">", "&gt;")
+			.replaceAll('"', "&quot;")
+			.replaceAll("'", "&apos;")
+	);
+
 	eleventyConfig.addWatchTarget("src/assets/css");
 	eleventyConfig.addWatchTarget("src/assets/js");
 

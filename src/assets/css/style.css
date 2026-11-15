@@ -356,6 +356,64 @@ h4 {
 	color: var(--color-secondary);
 }
 
+.entry blockquote {
+	margin-inline: 0;
+	padding-left: var(--space-40);
+	border-left: 4px solid var(--color-secondary);
+	font-style: italic;
+}
+
+.entry ul,
+.entry ol {
+	padding-left: 1.5em;
+}
+
+.post-meta {
+	font-size: var(--size-small);
+	color: var(--color-primary);
+}
+
+.post-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.post-list li + li {
+	margin-top: var(--space-40);
+	padding-top: var(--space-40);
+	border-top: 1px solid var(--color-tertiary);
+}
+
+.post-list time {
+	display: block;
+	font-size: var(--size-small);
+	color: var(--color-primary);
+	margin-bottom: var(--space-20);
+}
+
+.post-list h2 {
+	margin: 0;
+	font-size: var(--size-large);
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+.post-list h2 a {
+	color: var(--color-contrast);
+	text-decoration: none;
+}
+
+.post-list h2 a:hover,
+.post-list h2 a:focus-visible {
+	color: var(--color-secondary);
+	text-decoration: underline;
+}
+
+.post-list p {
+	margin: var(--space-20) 0 0;
+}
+
 .home .content {
 	display: flex;
 	flex-direction: column;
