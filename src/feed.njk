@@ -13,11 +13,11 @@ eleventyExcludeFromCollections: true
 		<generator>Eleventy</generator>
 		{% for post in collections.posts %}
 		<item>
-			<title>{{ post.data.title | xmlEscape }}</title>
+			<title>{{ post.data.title | xmlEscape | safe }}</title>
 			<link>{{ site.url }}{{ post.url }}</link>
 			<guid>{{ site.url }}{{ post.url }}</guid>
 			<pubDate>{{ post.date | rfc822 }}</pubDate>
-			<description>{{ post.data.description | xmlEscape }}</description>
+			<description>{{ post.data.description | xmlEscape | safe }}</description>
 		</item>
 		{% endfor %}
 	</channel>

@@ -1,6 +1,6 @@
 ---
 title: The Bill Was the Most Honest Document We Had
-description: The expensive surprises in AI tooling tend to live in the gap between the configuration you think you have and the one actually running.
+description: The expensive surprises in AI tooling tend to live in the gap between the configuration you think you have and the one that's actually running.
 date: 2026-11-15
 image: /assets/img/intended-vs-running-social.png
 imageAlt: "The post title, The Bill Was the Most Honest Document We Had, in white monospace type on a dark background with a green bar along the left edge."
