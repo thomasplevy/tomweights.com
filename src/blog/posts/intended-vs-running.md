@@ -2,6 +2,8 @@
 title: The Bill Was the Most Honest Document We Had
 description: The expensive surprises in AI tooling tend to live in the gap between the configuration you think you have and the one actually running.
 date: 2026-11-15
+image: /assets/img/intended-vs-running-social.png
+imageAlt: "The post title, The Bill Was the Most Honest Document We Had, in white monospace type on a dark background with a green bar along the left edge."
 ---
 The design said our AI traffic went one way. The bill said it went another. Only one of those documents had been checked by anyone with a stake in being right, and it wasn't the design.
 
