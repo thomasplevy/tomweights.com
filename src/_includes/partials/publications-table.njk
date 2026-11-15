@@ -1,0 +1,20 @@
+<figure class="table-wrap">
+	<table>
+		<thead>
+			<tr>
+				<th>Publication</th>
+				<th>Issue</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in items %}
+			<tr>
+				<td><a href="{{ item.url }}">{{ item.publication }}</a></td>
+				<td>{{ item.issue }}</td>
+				<td>{{ item.date }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</figure>

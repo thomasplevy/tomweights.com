@@ -1,0 +1,75 @@
+[
+  {
+    "id": "idm",
+    "title": "I Don't Mind if You're Feeling Alone",
+    "cover": "/assets/img/i-dont-mind-if-youre-feeling-alone.png",
+    "alt": "Cover image for \"I Don't Mind if You're Feeling Alone\" by Thomas Patrick Levy",
+    "links": [
+      {
+        "label": "YesYes Books",
+        "url": "https://www.yesyesbooks.com/product-page/i-don-t-mind-if-you-re-feeling-alone"
+      },
+      {
+        "label": "Amazon",
+        "url": "https://www.amazon.com/Dont-Mind-Youre-Feeling-Alone/dp/1936919087"
+      }
+    ],
+    "details": [
+      "Published 02/28/2012",
+      "ISBN: 978-1-936919-08-6",
+      "Perfect bound paperback",
+      "5″ x 6.25″, 100 pages",
+      "Publisher by YesYes Books",
+      "Cover & Design by Alban Fisher"
+    ],
+    "reviews": [
+      {
+        "label": "Monkeybicycle",
+        "url": "http://monkeybicycle.net/blog/interview-i-don%E2%80%99t-mind-if-you%E2%80%99re-feeling-alone-by-thomas-patrick-levy/"
+      },
+      {
+        "label": "The Next Best Book Blog",
+        "url": "http://thenextbestbookblog.blogspot.com/2012/07/review-i-dont-mind-if-youre-feeling.html"
+      },
+      {
+        "label": "HTMLGIANT",
+        "url": "http://htmlgiant.com/reviews/i-dont-mind-if-youre-feeling-alone/"
+      },
+      {
+        "label": "Vouched Books",
+        "url": "http://vouchedbooks.com/2012/07/04/ssr-2-of-15-i-dont-mind-if-you-are-feeling-alone/"
+      },
+      {
+        "label": "Vouched Books",
+        "url": "http://vouchedbooks.com/2012/05/24/erasure-ss-sentence-i-dont-mind-if-youre-feeling-alone-by-thomas-patrick-levy/"
+      },
+      {
+        "label": "Vouched Books",
+        "url": "http://vouchedbooks.com/2012/05/09/i-dont-mind-if-youre-feeling-alone-by-thomas-patrick-levy/"
+      }
+    ]
+  },
+  {
+    "id": "pdl",
+    "title": "Please Don't Leave Me Scarlett Johansson",
+    "cover": "/assets/img/please-dont-leave-me-scarlett-johansson.png",
+    "alt": "Cover image for \"Please Don't Leave Me Scarlett Johansson\" by Thomas Patrick Levy",
+    "links": [],
+    "details": [
+      "Published 8/15/2011",
+      "ISBN: 978-1-936919-05-",
+      "Saddle stapled chapbook",
+      "5″ x 5″, 26 pages"
+    ],
+    "reviews": [
+      {
+        "label": "Devil’s Lake",
+        "url": "http://english.wisc.edu/devilslake/reviews/levy_pleasedontleavemescarlettjohansson.html"
+      },
+      {
+        "label": "Vouched Books",
+        "url": "http://vouchedbooks.com/2011/09/28/you-can-rest-your-body-against-my-cars-warm-hood/"
+      }
+    ]
+  }
+]

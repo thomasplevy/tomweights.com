@@ -1,0 +1,15 @@
+---
+permalink: /feed/index.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ site.name }}</title>
+		<atom:link href="{{ site.url }}/feed/" rel="self" type="application/rss+xml"/>
+		<link>{{ site.url }}/</link>
+		<description>{{ site.description }}</description>
+		<language>{{ site.language }}</language>
+		<generator>Eleventy</generator>
+	</channel>
+</rss>

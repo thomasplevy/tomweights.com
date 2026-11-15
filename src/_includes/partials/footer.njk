@@ -1,0 +1,17 @@
+<footer class="site-footer">
+	<div class="site-footer__inner">
+		<p>© {{ site.author }}</p>
+		<ul class="social-links">
+			{% for item in social %}
+			<li>
+				<a href="{{ item.url }}">
+					{% set name = item.icon %}
+					{% include "partials/icons.njk" %}
+					<span class="visually-hidden">{{ item.label }}</span>
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+		<p class="site-footer__credits"><a href="/credits/">Site Credits</a></p>
+	</div>
+</footer>

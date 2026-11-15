@@ -1,0 +1,57 @@
+[
+  {
+    "label": "GitHub",
+    "url": "https://github.com/thomasplevy",
+    "icon": "github"
+  },
+  {
+    "label": "WordPress",
+    "url": "https://profiles.wordpress.org/thomasplevy",
+    "icon": "wordpress"
+  },
+  {
+    "label": "LinkedIn",
+    "url": "https://www.linkedin.com/in/thomasplevy/",
+    "icon": "linkedin"
+  },
+  {
+    "label": "Spotify",
+    "url": "https://open.spotify.com/user/1241465433?si=1fa52d1ec66d4d78",
+    "icon": "spotify"
+  },
+  {
+    "label": "Last.fm",
+    "url": "https://www.last.fm/user/thomasplevy",
+    "icon": "lastfm"
+  },
+  {
+    "label": "Discogs",
+    "url": "https://www.discogs.com/user/tom_weights",
+    "icon": "discogs"
+  },
+  {
+    "label": "Goodreads",
+    "url": "https://www.goodreads.com/user/show/157567214-thomas-levy",
+    "icon": "goodreads"
+  },
+  {
+    "label": "StoryGraph",
+    "url": "https://app.thestorygraph.com/profile/tom_weights",
+    "icon": "storygraph"
+  },
+  {
+    "label": "Instagram",
+    "url": "https://instagram.com/tom_weights",
+    "icon": "instagram"
+  },
+  {
+    "label": "X",
+    "url": "https://x.com/tom_weights",
+    "icon": "x"
+  },
+  {
+    "label": "Bluesky",
+    "url": "https://bsky.app/profile/caseproof-thomas.bsky.social",
+    "icon": "bluesky"
+  }
+]

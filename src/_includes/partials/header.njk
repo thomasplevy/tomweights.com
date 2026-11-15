@@ -1,0 +1,21 @@
+<header class="site-header">
+	<div class="site-header__inner">
+		<div class="brand">
+			<p class="site-title"><a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>{{ site.name }}</a></p>
+			<p class="site-tagline">{{ site.tagline }}</p>
+		</div>
+		<nav class="site-nav" aria-label="Header navigation">
+			<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+				<svg class="nav-toggle__open" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="7.5" width="16" height="1.5"></rect><rect x="4" y="15" width="16" height="1.5"></rect></svg>
+				<svg class="nav-toggle__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg>
+			</button>
+			<ul id="site-menu" class="site-menu">
+				{% for item in navigation %}
+				<li>
+					<a href="{{ item.url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
+</header>

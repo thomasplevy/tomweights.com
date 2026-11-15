@@ -1,7 +1,3 @@
-# Exclude secrets.
 .env
-
-# Exclude WordPress core files.
-htdocs
-
 node_modules
+_site

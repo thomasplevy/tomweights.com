@@ -1,0 +1,30 @@
+<section id="{{ book.id }}" class="book">
+	<h3 class="book__title">{{ book.title }}</h3>
+	<div class="book__layout">
+		<figure class="book__cover">
+			<img src="{{ book.cover }}" alt="{{ book.alt }}" width="498" height="603">
+		</figure>
+		<div class="book__meta">
+			{% if book.links.length %}
+			<div class="book__actions">
+				{% for link in book.links %}
+				<a class="button" href="{{ link.url }}">{{ link.label }}</a>
+				{% endfor %}
+			</div>
+			{% endif %}
+			<ul class="book__details">
+				{% for detail in book.details %}
+				<li>{{ detail }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div class="book__reviews">
+		<h3>Reviews &amp; Interviews</h3>
+		<ul>
+			{% for review in book.reviews %}
+			<li><a href="{{ review.url }}"{% if book.id == "idm" and loop.first %} rel="noreferrer noopener" target="_blank"{% endif %}>{{ review.label }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>

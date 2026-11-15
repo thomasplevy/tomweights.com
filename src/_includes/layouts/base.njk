@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ site.language }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="max-image-preview:large">
+	<title>{% if title and title != site.name %}{{ title }} – {{ site.name }}{% else %}{{ site.name }} – {{ site.tagline }}{% endif %}</title>
+	<meta name="description" content="{{ description or site.description }}">
+	<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} » Feed" href="/feed/">
+	<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+	<link rel="icon" href="/assets/img/favicon.png" sizes="192x192">
+	<link rel="apple-touch-icon" href="/assets/img/favicon.png">
+	<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="{% if page.url == '/' %}home{% else %}page{% endif %}">
+	<a class="skip-link" href="#content">Skip to content</a>
+	<div class="site">
+		{% include "partials/header.njk" %}
+		{{ content | safe }}
+		{% include "partials/footer.njk" %}
+	</div>
+	<script src="/assets/js/nav.js"></script>
+</body>
+</html>
