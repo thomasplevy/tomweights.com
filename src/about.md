@@ -3,9 +3,9 @@ layout: layouts/page.njk
 title: About
 permalink: /about/
 ---
-Hello there, Hi. I'm Thomas Patrick Levy. You can call me Tom or Thomas. I don't care, really. Want to read more about my name? That's cool, skip to [An Exhaustive History of My Name](#an-exhaustive-history-of-my-name). I'm a founder, a product developer and manager, a software engineer, a WordPress critic and enthusiast, a poet, and an amateur strongman.
+Hello there, Hi. I'm Thomas Patrick Levy. You can call me Tom or Thomas. I don't care, really. Want to read more about my name? That's cool, skip to [An Exhaustive History of My Name](#an-exhaustive-history-of-my-name). I'm a founder, a product manager turned head of infrastructure, a software engineer, a WordPress critic and enthusiast, a poet, and an amateur strongman.
 
-## Founder, Product Manager, and Software Engineer
+## Founder, Head of Infrastructure, and Software Engineer
 
 I'm a self-taught software engineer and developer with over 15 years experience creating software and software products. I mostly work in and around WordPress but not exclusively.
 
