@@ -13,7 +13,7 @@ I founded codeBOX, LLC in 2013 and for almost a decade served as the CTO, produc
 
 I've been using WordPress in some form or another since 2008. Initially I disliked WordPress because I insisted I should build everything from scratch. As I sought to build things from scratch I found myself reading WordPress code for inspiration. After a number of years of study I admitted to myself (and others) that I admired WordPress. Like anything, it's not perfect but it's my preferred platform for most things these days.
 
-I've been involved in the WordPress community since 2015 when I attended my very first WordCamp in Los Angeles. Since then I've been a member of the organizing team of WordCamp Los Angeles from 2016 to 2018 and am currently a member of the WordCamp Phoenix organizing team. I've spoken and volunteered at a number of WordCamps. And I've been a meetup organizer for a WooCommerce meetup in Phoenix since 2021.
+I've been involved in the WordPress community since 2015 when I attended my very first WordCamp in Los Angeles. Since then I've been a member of the organizing team of WordCamp Los Angeles from 2016 to 2018 and of WordCamp Phoenix through 2023. I've spoken and volunteered at a number of WordCamps. And I organized a WooCommerce meetup in Phoenix from 2021 until it wound down in 2024.
 
 ## Writing Little Poems and Things
 
