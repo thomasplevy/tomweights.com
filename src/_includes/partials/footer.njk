@@ -1,17 +1,29 @@
 <footer class="site-footer">
 	<div class="site-footer__inner">
 		<p>© {{ site.author }}</p>
-		<ul class="social-links">
-			{% for item in social %}
-			<li>
-				<a href="{{ item.url }}">
-					{% set name = item.icon %}
-					{% include "partials/icons.njk" %}
-					<span class="visually-hidden">{{ item.label }}</span>
-				</a>
-			</li>
+		<div class="social-groups">
+			{% for group in [
+				{ "id": "work", "label": "Work" },
+				{ "id": "music", "label": "Music" },
+				{ "id": "books", "label": "Books" },
+				{ "id": "elsewhere", "label": "Elsewhere" }
+			] %}
+			<div class="social-group">
+				<p class="social-group__label" id="social-{{ group.id }}">{{ group.label }}</p>
+				<ul class="social-links" aria-labelledby="social-{{ group.id }}">
+					{% for item in social %}{% if item.group == group.id %}
+					<li>
+						<a href="{{ item.url }}">
+							{% set name = item.icon %}
+							{% include "partials/icons.njk" %}
+							<span class="visually-hidden">{{ item.label }}</span>
+						</a>
+					</li>
+					{% endif %}{% endfor %}
+				</ul>
+			</div>
 			{% endfor %}
-		</ul>
+		</div>
 		<p class="site-footer__credits"><a href="/credits/">Site Credits</a></p>
 	</div>
 </footer>

@@ -2,56 +2,67 @@
   {
     "label": "GitHub",
     "url": "https://github.com/thomasplevy",
-    "icon": "github"
+    "icon": "github",
+    "group": "work"
   },
   {
     "label": "WordPress",
     "url": "https://profiles.wordpress.org/thomasplevy",
-    "icon": "wordpress"
+    "icon": "wordpress",
+    "group": "work"
   },
   {
     "label": "LinkedIn",
     "url": "https://www.linkedin.com/in/thomasplevy/",
-    "icon": "linkedin"
+    "icon": "linkedin",
+    "group": "work"
   },
   {
     "label": "Spotify",
     "url": "https://open.spotify.com/user/1241465433?si=1fa52d1ec66d4d78",
-    "icon": "spotify"
+    "icon": "spotify",
+    "group": "music"
   },
   {
     "label": "Last.fm",
     "url": "https://www.last.fm/user/thomasplevy",
-    "icon": "lastfm"
+    "icon": "lastfm",
+    "group": "music"
   },
   {
     "label": "Discogs",
     "url": "https://www.discogs.com/user/tom_weights",
-    "icon": "discogs"
+    "icon": "discogs",
+    "group": "music"
   },
   {
     "label": "Goodreads",
     "url": "https://www.goodreads.com/user/show/157567214-thomas-levy",
-    "icon": "goodreads"
+    "icon": "goodreads",
+    "group": "books"
   },
   {
     "label": "StoryGraph",
     "url": "https://app.thestorygraph.com/profile/tom_weights",
-    "icon": "storygraph"
+    "icon": "storygraph",
+    "group": "books"
   },
   {
     "label": "Instagram",
     "url": "https://instagram.com/tom_weights",
-    "icon": "instagram"
+    "icon": "instagram",
+    "group": "elsewhere"
   },
   {
     "label": "X",
     "url": "https://x.com/tom_weights",
-    "icon": "x"
+    "icon": "x",
+    "group": "elsewhere"
   },
   {
     "label": "Bluesky",
     "url": "https://bsky.app/profile/caseproof-thomas.bsky.social",
-    "icon": "bluesky"
+    "icon": "bluesky",
+    "group": "work"
   }
 ]
