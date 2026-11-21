@@ -25,6 +25,7 @@
 	<link rel="icon" href="/assets/img/favicon.png" sizes="192x192">
 	<link rel="apple-touch-icon" href="/assets/img/favicon.png">
 	<link rel="stylesheet" href="/assets/css/style.css">
+	{% include "partials/json-ld.njk" %}
 </head>
 <body class="{% if page.url == '/' %}home{% else %}page{% endif %}">
 	<a class="skip-link" href="#content">Skip to content</a>
