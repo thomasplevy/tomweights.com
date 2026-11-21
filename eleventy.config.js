@@ -43,6 +43,25 @@ module.exports = function (eleventyConfig) {
 			.replaceAll("'", "&apos;")
 	);
 
+	// Serve every <img> in the built pages as responsive AVIF and WebP, with a resized original as the fallback.
+	// Width and height come from the image itself, so the markup can't drift from the file.
+	const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		formats: ["avif", "webp", "auto"],
+		widths: [320, 640, 960, 1280],
+		urlPath: "/assets/img/opt/",
+		outputDir: "./_site/assets/img/opt/",
+		// The source PNGs are palette images; keep the fallback that way too instead of ballooning to full color.
+		sharpPngOptions: { palette: true, quality: 90, compressionLevel: 9, effort: 10 },
+		htmlOptions: {
+			imgAttributes: {
+				loading: "lazy",
+				decoding: "async",
+				sizes: "(min-width: 712px) 640px, 90vw",
+			},
+		},
+	});
+
 	eleventyConfig.addWatchTarget("src/assets/css");
 	eleventyConfig.addWatchTarget("src/assets/js");
 
