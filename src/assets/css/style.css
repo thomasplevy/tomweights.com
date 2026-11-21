@@ -565,6 +565,24 @@ hr {
 	text-align: right;
 }
 
+.social-groups {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: var(--space-20) var(--space-40);
+}
+
+.site-footer__inner .social-group__label {
+	flex: none;
+	margin: 0 0 0.5em;
+	color: var(--color-primary);
+	font-size: 0.75rem;
+	letter-spacing: 0.08em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 .social-links {
 	display: flex;
 	flex-wrap: wrap;
@@ -616,5 +634,9 @@ hr {
 
 	.site-footer__credits {
 		text-align: center;
+	}
+
+	.site-footer__inner p {
+		flex: none;
 	}
 }
