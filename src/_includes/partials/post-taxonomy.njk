@@ -1,0 +1,18 @@
+{%- if series -%}
+{%- for s in collections.series -%}{%- if s.name == series %}
+<aside class="series-box" aria-label="Series">
+	{%- for part in s.posts -%}{%- if part.url == page.url %}
+	<p>Part {{ loop.index }} of {{ s.posts.length }} in <a href="/blog/series/{{ s.name | slugify }}/">{{ s.name }}</a></p>
+	{%- endif -%}{%- endfor %}
+	<ol>
+		{%- for part in s.posts %}
+		<li>{% if part.url == page.url %}<span aria-current="page">{{ part.data.title }}</span>{% else %}<a href="{{ part.url }}">{{ part.data.title }}</a>{% endif %}</li>
+		{%- endfor %}
+	</ol>
+</aside>
+{%- endif -%}{%- endfor -%}
+{%- endif -%}
+{%- set postTags = (tags or []) | reject("equalto", "posts") | list -%}
+{%- if postTags.length %}
+<p class="post-tags">Filed under {% for tag in postTags %}<a href="/blog/tags/{{ tag | slugify }}/" rel="tag">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+{%- endif %}
