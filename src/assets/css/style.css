@@ -773,7 +773,7 @@ hr {
 }
 
 .review-list__body time {
-	margin-bottom: var(--space-20);
+	margin-bottom: 0.5em;
 }
 
 @media (min-width: 700px) {
