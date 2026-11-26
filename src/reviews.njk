@@ -10,10 +10,12 @@ permalink: /reviews/
 	<li class="review-list__item">
 		{% if review.data.coverImage %}
 		<a href="{{ review.url }}" class="review-list__cover">
-			<picture>
-				{% if review.data.coverImage.thumb.webpSrcset %}<source type="image/webp" srcset="{{ review.data.coverImage.thumb.webpSrcset }}" sizes="80px">{% endif %}
-				<img src="{{ review.data.coverImage.thumb.src }}"{% if review.data.coverImage.thumb.srcset %} srcset="{{ review.data.coverImage.thumb.srcset }}" sizes="80px"{% endif %} width="{{ review.data.coverImage.thumb.width }}" height="{{ review.data.coverImage.thumb.height }}" alt="{{ review.data.coverImage.alt }}">
-			</picture>
+			<figure class="book__cover">
+				<picture>
+					{% if review.data.coverImage.thumb.webpSrcset %}<source type="image/webp" srcset="{{ review.data.coverImage.thumb.webpSrcset }}" sizes="80px">{% endif %}
+					<img src="{{ review.data.coverImage.thumb.src }}"{% if review.data.coverImage.thumb.srcset %} srcset="{{ review.data.coverImage.thumb.srcset }}" sizes="80px"{% endif %} width="{{ review.data.coverImage.thumb.width }}" height="{{ review.data.coverImage.thumb.height }}" alt="{{ review.data.coverImage.alt }}">
+				</picture>
+			</figure>
 		</a>
 		{% endif %}
 		<div class="review-list__body">

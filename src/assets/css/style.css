@@ -737,12 +737,9 @@ hr {
 	padding-left: 0;
 }
 
-.review-cover img {
-	display: block;
+.review-cover {
+	flex: 0 0 auto;
 	width: 160px;
-	height: auto;
-	background-color: var(--color-tertiary);
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .review-buy {
@@ -759,12 +756,8 @@ hr {
 	flex: 0 0 auto;
 }
 
-.review-list__cover img {
-	display: block;
+.review-list__cover .book__cover {
 	width: 80px;
-	height: auto;
-	background-color: var(--color-tertiary);
-	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
 .review-list__body {
@@ -782,7 +775,7 @@ hr {
 		align-items: flex-end;
 	}
 
-	.review-cover img {
+	.review-cover {
 		width: 200px;
 	}
 }
