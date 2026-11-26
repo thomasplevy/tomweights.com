@@ -36,15 +36,9 @@
     "group": "music"
   },
   {
-    "label": "Goodreads",
-    "url": "https://www.goodreads.com/user/show/157567214-thomas-levy",
-    "icon": "goodreads",
-    "group": "books"
-  },
-  {
-    "label": "StoryGraph",
-    "url": "https://app.thestorygraph.com/profile/tom_weights",
-    "icon": "storygraph",
+    "label": "Hardcover",
+    "url": "https://hardcover.app/@tom_weights/books?referrer_id=123610",
+    "icon": "hardcover",
     "group": "books"
   },
   {

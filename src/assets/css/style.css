@@ -621,6 +621,23 @@ hr {
 	}
 }
 
+.social-links a.social-links__text {
+	font-size: var(--size-small);
+	color: var(--color-primary);
+	text-decoration: underline;
+	line-height: 1.2;
+}
+
+.social-links a.social-links__text:hover,
+.social-links a.social-links__text:active {
+	color: var(--color-secondary);
+	text-decoration: none;
+}
+
+.social-links li:has(> a.social-links__text):hover {
+	transform: none;
+}
+
 @media (max-width: 700px) {
 	.page-header {
 		max-width: calc(100% - 2 * var(--space-20));
