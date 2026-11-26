@@ -2,29 +2,40 @@
 layout: layouts/base.njk
 ---
 <main id="content" class="content content--page">
-	<div class="review-top">
-		{% if coverImage %}
-		<figure class="book__cover review-cover">
-			<picture>
-				{% if coverImage.page.webpSrcset %}<source type="image/webp" srcset="{{ coverImage.page.webpSrcset }}" sizes="(min-width: 700px) 200px, 160px">{% endif %}
-				<img src="{{ coverImage.page.src }}"{% if coverImage.page.srcset %} srcset="{{ coverImage.page.srcset }}" sizes="(min-width: 700px) 200px, 160px"{% endif %} width="{{ coverImage.page.width }}" height="{{ coverImage.page.height }}" alt="{{ coverImage.alt }}">
-			</picture>
-		</figure>
-		{% endif %}
-		<div class="page-header">
-			<h1>{{ title }}</h1>
-		</div>
+	<div class="page-header">
+		<h1>Reviews</h1>
 	</div>
 	<div class="entry">
-		<p class="review-author">by {{ author }}</p>
-		<p class="post-meta review-meta">
-			<span class="review-rating" role="img" aria-label="Rated {{ rating }} out of 5">{{ rating | starIcons | safe }}</span>
-			<time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time>
-		</p>
+		<section class="book">
+			<div class="book__layout">
+				<div class="review__primary">
+					<h2 class="book__title">{{ title }}</h2>
+					{% if coverImage %}
+					<figure class="book__cover">
+						<picture>
+							{% if coverImage.page.webpSrcset %}<source type="image/webp" srcset="{{ coverImage.page.webpSrcset }}" sizes="(min-width: 40rem) 16rem, 90vw">{% endif %}
+							<img src="{{ coverImage.page.src }}"{% if coverImage.page.srcset %} srcset="{{ coverImage.page.srcset }}" sizes="(min-width: 40rem) 16rem, 90vw"{% endif %} width="{{ coverImage.page.width }}" height="{{ coverImage.page.height }}" alt="{{ coverImage.alt }}">
+						</picture>
+					</figure>
+					{% endif %}
+				</div>
+				<div class="book__meta">
+					{% if isbn %}
+					<div class="book__actions">
+						<a class="button" href="{{ (bookshopIsbn or isbn) | bookshopUrl(bookshop.affiliateId) }}" rel="noopener">Buy on Bookshop.org</a>
+					</div>
+					{% endif %}
+					<ul class="book__details">
+						<li>by {{ author }}</li>
+						<li><time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time></li>
+						<li><span class="review-rating" role="img" aria-label="Rated {{ rating }} out of 5">{{ rating | starIcons | safe }}</span></li>
+						{% if isbn %}
+						<li>ISBN {{ isbn }}</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</section>
 		{{ content | safe }}
-		{% if isbn %}
-		<p class="review-buy"><a href="{{ (bookshopIsbn or isbn) | bookshopUrl(bookshop.affiliateId) }}" rel="noopener">Buy on Bookshop.org</a></p>
-		<p class="post-meta">ISBN {{ isbn }}</p>
-		{% endif %}
 	</div>
 </main>
