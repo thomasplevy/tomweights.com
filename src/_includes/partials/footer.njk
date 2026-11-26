@@ -13,10 +13,14 @@
 				<ul class="social-links" aria-labelledby="social-{{ group.id }}">
 					{% for item in social %}{% if item.group == group.id %}
 					<li>
-						<a href="{{ item.url }}">
+						<a href="{{ item.url }}"{% if not item.icon %} class="social-links__text"{% endif %}>
+							{% if item.icon %}
 							{% set name = item.icon %}
 							{% include "partials/icons.njk" %}
 							<span class="visually-hidden">{{ item.label }}</span>
+							{% else %}
+							{{ item.label }}
+							{% endif %}
 						</a>
 					</li>
 					{% endif %}{% endfor %}
