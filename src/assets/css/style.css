@@ -719,3 +719,70 @@ hr {
 	margin-top: 0.5em;
 	font-size: 1.1rem;
 }
+
+.review-top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-40);
+	width: min(640px, 90vw);
+	margin: 0 auto;
+}
+
+.review-top .page-header {
+	flex: 1 1 auto;
+	min-width: 0;
+	width: 100%;
+	max-width: none;
+	padding-left: 0;
+}
+
+.review-cover img {
+	display: block;
+	width: 160px;
+	height: auto;
+	background-color: var(--color-tertiary);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.review-buy {
+	margin-block-start: var(--space-40);
+}
+
+.review-list__item {
+	display: flex;
+	gap: var(--space-40);
+	align-items: flex-start;
+}
+
+.review-list__cover {
+	flex: 0 0 auto;
+}
+
+.review-list__cover img {
+	display: block;
+	width: 80px;
+	height: auto;
+	background-color: var(--color-tertiary);
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.review-list__body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.review-list__body time {
+	margin-bottom: var(--space-20);
+}
+
+@media (min-width: 700px) {
+	.review-top {
+		flex-direction: row;
+		align-items: flex-end;
+	}
+
+	.review-cover img {
+		width: 200px;
+	}
+}

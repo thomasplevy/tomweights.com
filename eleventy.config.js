@@ -47,6 +47,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("src/assets/js");
 
 	require("./lib/reviews.js")(eleventyConfig);
+	require("./lib/covers.js")(eleventyConfig);
 
 	eleventyConfig.setServerOptions({
 		port: 8888,
