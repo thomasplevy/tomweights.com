@@ -1,0 +1,24 @@
+---
+permalink: /reviews/feed/index.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ site.name }} – Reviews</title>
+		<atom:link href="{{ site.url }}/reviews/feed/" rel="self" type="application/rss+xml"/>
+		<link>{{ site.url }}/reviews/</link>
+		<description>Book reviews from {{ site.name }}</description>
+		<language>{{ site.language }}</language>
+		<generator>Eleventy</generator>
+		{% for review in collections.reviews %}
+		<item>
+			<title>{{ review.data.title | xmlEscape | safe }} by {{ review.data.author | xmlEscape | safe }}</title>
+			<link>{{ site.url }}{{ review.url }}</link>
+			<guid>{{ site.url }}{{ review.url }}</guid>
+			<pubDate>{{ review.date | rfc822 }}</pubDate>
+			<description>{{ ('<p>Rated ' + review.data.rating + ' out of 5.</p>' + review.templateContent) | xmlEscape | safe }}</description>
+		</item>
+		{% endfor %}
+	</channel>
+</rss>

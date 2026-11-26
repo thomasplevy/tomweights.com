@@ -1,6 +1,7 @@
 [
   { "label": "About", "url": "/about/" },
   { "label": "Blog", "url": "/blog/" },
+  { "label": "Reviews", "url": "/reviews/" },
   { "label": "Code", "url": "/software-and-code/" },
   { "label": "Poetry", "url": "/poetry/" }
 ]

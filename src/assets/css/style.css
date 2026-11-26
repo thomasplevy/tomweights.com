@@ -262,7 +262,7 @@ h4 {
 	text-decoration: underline;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
 	.nav-toggle {
 		display: none;
 	}
@@ -275,7 +275,7 @@ h4 {
 	}
 }
 
-@media (max-width: 599px) {
+@media (max-width: 699px) {
 	.nav-toggle {
 		min-width: 44px;
 		min-height: 44px;
@@ -673,4 +673,49 @@ hr {
 	.site-footer__inner p {
 		flex: none;
 	}
+}
+
+/* Book reviews */
+.review-author {
+	color: var(--color-contrast);
+}
+
+.review-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 var(--space-20);
+}
+
+.review-rating {
+	display: inline-flex;
+	gap: 0.15em;
+	font-size: 1.25rem;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.review-rating .star {
+	fill: none;
+	stroke: var(--color-secondary);
+	stroke-width: 1.5;
+	stroke-linejoin: round;
+}
+
+.review-rating .star--on {
+	fill: var(--color-secondary);
+}
+
+.review-list .review-author,
+.review-list .review-rating {
+	margin: 0;
+}
+
+.review-list .review-author {
+	margin-top: 0.25em;
+	font-size: var(--size-small);
+}
+
+.review-list .review-rating {
+	margin-top: 0.5em;
+	font-size: 1.1rem;
 }

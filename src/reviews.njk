@@ -1,0 +1,21 @@
+---
+layout: layouts/page.njk
+title: Reviews
+description: Book reviews, with a star rating and the day I finished each one.
+permalink: /reviews/
+---
+{% if collections.reviews.length %}
+<ul class="post-list review-list">
+	{% for review in collections.reviews %}
+	<li>
+		<time datetime="{{ review.date | htmlDate }}">Finished {{ review.date | readableDate }}</time>
+		<h2><a href="{{ review.url }}">{{ review.data.title }}</a></h2>
+		<p class="review-author">by {{ review.data.author }}</p>
+		<p class="review-rating" role="img" aria-label="Rated {{ review.data.rating }} out of 5">{{ review.data.rating | starIcons | safe }}</p>
+	</li>
+	{% endfor %}
+</ul>
+<p class="post-meta">Follow along with the <a href="/reviews/feed/">reviews feed</a>.</p>
+{% else %}
+<p>No reviews yet.</p>
+{% endif %}

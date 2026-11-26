@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+<main id="content" class="content content--page">
+	<div class="page-header">
+		<h1>{{ title }}</h1>
+	</div>
+	<div class="entry">
+		<p class="review-author">by {{ author }}</p>
+		<p class="post-meta review-meta">
+			<span class="review-rating" role="img" aria-label="Rated {{ rating }} out of 5">{{ rating | starIcons | safe }}</span>
+			<span>Finished <time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time></span>
+		</p>
+		{{ content | safe }}
+		{% if isbn %}
+		<p class="post-meta">ISBN {{ isbn }}</p>
+		{% endif %}
+	</div>
+</main>
