@@ -1,0 +1,12 @@
+{#- Structured data (schema.org JSON-LD): Person on the home and about pages, BlogPosting on posts. Stick to facts the site already states. -#}
+{%- set personId = site.url + "/#person" -%}
+{%- macro person() -%}
+{"@type": "Person", "@id": {{ personId | dump | safe }}, "name": {{ site.author | dump | safe }}, "alternateName": "Tom Weights", "jobTitle": "Head of Infrastructure", "url": {{ (site.url + "/about/") | dump | safe }}, "knowsAbout": ["WordPress", "Software engineering", "Product management", "Poetry", "Strongman"], "sameAs": [{% for item in social %}{{ item.url | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}]}
+{%- endmacro -%}
+{%- if page.url == "/" %}
+	<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": {{ (site.url + "/#website") | dump | safe }}, "name": {{ site.name | dump | safe }}, "url": {{ (site.url + "/") | dump | safe }}, "description": {{ site.description | dump | safe }}, "inLanguage": {{ site.language | dump | safe }}, "publisher": {"@id": {{ personId | dump | safe }}}}, {{ person() }}]}</script>
+{%- elif page.url == "/about/" %}
+	<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "url": {{ (site.url + page.url) | dump | safe }}, "mainEntity": {{ person() }}}</script>
+{%- elif "/blog/posts/" in page.inputPath %}
+	<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": {{ title | dump | safe }}, {% if description %}"description": {{ description | dump | safe }}, {% endif %}"datePublished": {{ page.date | htmlDate | dump | safe }}, "url": {{ (site.url + page.url) | dump | safe }}, "mainEntityOfPage": {{ (site.url + page.url) | dump | safe }}, "inLanguage": {{ site.language | dump | safe }}, {% if image %}"image": {{ (site.url + image) | dump | safe }}, {% endif %}"author": {"@type": "Person", "@id": {{ personId | dump | safe }}, "name": {{ site.author | dump | safe }}, "url": {{ (site.url + "/about/") | dump | safe }}}}</script>
+{%- endif %}
