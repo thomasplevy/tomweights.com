@@ -8,7 +8,9 @@ layout: layouts/base.njk
 	<div class="entry">
 		<p class="post-meta">
 			<time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time>
+			<span aria-hidden="true">·</span> {{ content | readingTime }}
 		</p>
 		{{ content | safe }}
 	</div>
+	{% include "partials/post-footer.njk" %}
 </main>

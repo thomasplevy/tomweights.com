@@ -1,0 +1,19 @@
+{% set newer = collections.posts | getPreviousCollectionItem %}
+{% set older = collections.posts | getNextCollectionItem %}
+<footer class="post-footer">
+	{% if newer or older %}
+	<nav class="post-nav" aria-label="More posts">
+		{% if newer %}<a class="post-nav__newer" href="{{ newer.url }}" rel="prev"><span>← Newer</span>{{ newer.data.title }}</a>{% endif %}
+		{% if older %}<a class="post-nav__older" href="{{ older.url }}" rel="next"><span>Older →</span>{{ older.data.title }}</a>{% endif %}
+	</nav>
+	{% endif %}
+	<p class="post-follow">
+		To catch the next one, follow along via <a href="/feed/">RSS</a>
+		{%- for item in social -%}
+			{%- if item.label == "LinkedIn" %}, <a href="{{ item.url }}">LinkedIn</a>{% endif -%}
+		{%- endfor -%}
+		{%- for item in social -%}
+			{%- if item.label == "Bluesky" %}, or <a href="{{ item.url }}">Bluesky</a>{% endif -%}
+		{%- endfor -%}.
+	</p>
+</footer>

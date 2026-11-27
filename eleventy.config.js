@@ -34,6 +34,15 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addFilter("rfc822", (dateObj) => new Date(dateObj).toUTCString());
 
+	// Rough reading time at 230 words a minute, rounded up.
+	eleventyConfig.addFilter("readingTime", (html) => {
+		const words = String(html ?? "")
+			.replace(/<[^>]*>/g, " ")
+			.split(/\s+/)
+			.filter(Boolean).length;
+		return `${Math.max(1, Math.ceil(words / 230))} min read`;
+	});
+
 	eleventyConfig.addFilter("xmlEscape", (value) =>
 		String(value ?? "")
 			.replaceAll("&", "&amp;")
