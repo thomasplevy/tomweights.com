@@ -11,7 +11,7 @@
 // Docs: https://github.com/bookorbit/bookorbit/blob/main/docs/API_KEYS.md
 //
 // Usage: node scripts/sync-bookorbit-reviews.mjs [--dry-run] [--report <file>]
-// Env:   BOOKORBIT_URL, BOOKORBIT_API_KEY (required); BOOKORBIT_TIMEZONE (default America/Los_Angeles)
+// Env:   BOOKORBIT_URL, BOOKORBIT_API_KEY (required); BOOKORBIT_TIMEZONE (default America/Phoenix)
 //
 // Reviews that already exist in src/reviews/ are skipped, matched by ISBN (isbn or bookshopIsbn
 // in the front matter) or by slug. Anything listed in scripts/bookorbit-ignore.txt is skipped too.
@@ -21,7 +21,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PAGE_SIZE = 100;
-const DEFAULT_TIME_ZONE = "America/Los_Angeles";
+const DEFAULT_TIME_ZONE = "America/Phoenix";
 
 // ---------- small helpers (exported for tests) ----------
 
@@ -59,7 +59,7 @@ export function cleanIsbn(value) {
 	return "";
 }
 
-// BookOrbit sends timestamptz as ISO strings in UTC. A book finished at 9pm Pacific is already
+// BookOrbit sends timestamptz as ISO strings in UTC. A book finished at 9pm in Phoenix is already
 // "tomorrow" in UTC, so convert to the time zone I actually read in.
 export function dateInZone(iso, timeZone = DEFAULT_TIME_ZONE) {
 	const date = new Date(iso);
