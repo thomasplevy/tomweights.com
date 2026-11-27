@@ -1,0 +1,94 @@
+name: Sync BookOrbit reviews
+
+# Once a day, read my private reviews from BookOrbit and open (or update) a single pull request
+# with any that are not on the site yet. Nothing is merged or deployed from here; I review the PR.
+# See scripts/README.md for how it works and what it needs.
+
+on:
+  schedule:
+    - cron: "17 14 * * *" # daily, about 6-7am Pacific
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list what would be added; don't open a pull request"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bookorbit-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check the BookOrbit secrets are set
+        env:
+          BOOKORBIT_URL: ${{ secrets.BOOKORBIT_URL || vars.BOOKORBIT_URL }}
+          BOOKORBIT_API_KEY: ${{ secrets.BOOKORBIT_API_KEY }}
+        run: |
+          if [ -z "$BOOKORBIT_URL" ] || [ -z "$BOOKORBIT_API_KEY" ]; then
+            echo "::error::Add the BOOKORBIT_URL and BOOKORBIT_API_KEY repository secrets (see scripts/README.md)."
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      # If a sync PR is already open, build on its branch so my edits there are kept, and take the
+      # scripts from trunk so a stale branch never runs old code.
+      - name: Use the open sync PR's branch, if there is one
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          open=$(gh pr list --head bookorbit-sync --base "$DEFAULT_BRANCH" --state open --json number --jq '.[0].number')
+          if [ -n "$open" ]; then
+            echo "Building on the open pull request #$open."
+            git checkout -B bookorbit-sync origin/bookorbit-sync
+            git checkout "origin/$DEFAULT_BRANCH" -- scripts
+          fi
+
+      - name: Sync reviews from BookOrbit
+        id: sync
+        env:
+          BOOKORBIT_URL: ${{ secrets.BOOKORBIT_URL || vars.BOOKORBIT_URL }}
+          BOOKORBIT_API_KEY: ${{ secrets.BOOKORBIT_API_KEY }}
+          BOOKORBIT_TIMEZONE: ${{ vars.BOOKORBIT_TIMEZONE }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: node scripts/sync-bookorbit-reviews.mjs --report "$RUNNER_TEMP/bookorbit-report.json" $DRY_RUN
+
+      - name: Setup Node
+        if: steps.sync.outputs.added != '0'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        if: steps.sync.outputs.added != '0'
+        run: |
+          npm ci
+          sudo apt-get install -y --no-install-recommends python3-pil
+
+      # The build checks the new files (a bad rating or ISBN fails it) and fetches their covers into
+      # src/assets/img/covers/, which then go into the PR with the reviews.
+      - name: Build
+        if: steps.sync.outputs.added != '0'
+        run: npm run build
+
+      - name: Open or update the pull request
+        if: steps.sync.outputs.added != '0'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+          SYNC_REPORT: ${{ runner.temp }}/bookorbit-report.json
+        run: node scripts/open-bookorbit-pr.mjs
