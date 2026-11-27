@@ -505,13 +505,32 @@ hr {
 	margin: 0;
 }
 
-.review__primary {
-	flex: 1 1 16rem;
+.review__header {
+	margin: 0 0 var(--space-40);
 }
 
-/* Title sits in the left column, so start the right column at the top. */
-.review__primary + .book__meta {
+.review__header .book__title {
+	margin: 0;
+}
+
+.review__byline {
+	margin: 0.35em 0 0;
+	color: var(--color-contrast);
+}
+
+.review .book__meta {
 	justify-content: flex-start;
+	gap: var(--space-20);
+}
+
+.review .book__details {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.review .book__details li + li {
+	margin-top: 0.35em;
 }
 
 .book__cover img {
