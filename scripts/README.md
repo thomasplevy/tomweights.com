@@ -15,7 +15,7 @@ Both scripts use Node's built-in `fetch`; there are no new dependencies.
 2. In the repository, go to **Settings > Secrets and variables > Actions** and add:
    - `BOOKORBIT_API_KEY`: the key (starts with `bok_`).
    - `BOOKORBIT_URL`: the address of the BookOrbit server, like `https://books.example.com`. It can be a repository variable instead of a secret.
-   - Optional variable `BOOKORBIT_TIMEZONE`: an IANA time zone for turning finish times into dates. Defaults to `America/Los_Angeles`.
+   - Optional variable `BOOKORBIT_TIMEZONE`: an IANA time zone for turning finish times into dates. Defaults to `America/Phoenix`, which is UTC-7 all year.
 3. In **Settings > Actions > General > Workflow permissions**, turn on **Allow GitHub Actions to create and approve pull requests**. Without it, the last step fails when it tries to open the PR.
 
 The server must be reachable from GitHub's runners. A BookOrbit instance that is only on a home network or behind a VPN can't be polled from here.

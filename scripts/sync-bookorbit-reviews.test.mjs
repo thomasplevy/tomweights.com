@@ -90,9 +90,15 @@ test("helpers", () => {
 	assert.equal(cleanIsbn("978-0-441-47812-5"), "9780441478125");
 	assert.equal(cleanIsbn("0-441-47812-3"), "9780441478125");
 	assert.equal(cleanIsbn("nonsense"), "");
-	// 9:30pm on Dec 1 in Pacific is Dec 2 in UTC
-	assert.equal(dateInZone("2026-12-02T05:30:00.000Z", "America/Los_Angeles"), "2026-12-01");
-	assert.equal(dateInZone("2026-12-02T05:30:00.000Z", "UTC"), "2026-12-02");
+	// 12:30am on Dec 2 in Phoenix (UTC-7, all year) is still Dec 1 in Los Angeles in winter (UTC-8)
+	assert.equal(dateInZone("2026-12-02T07:30:00.000Z", "America/Phoenix"), "2026-12-02");
+	assert.equal(dateInZone("2026-12-02T07:30:00.000Z", "America/Los_Angeles"), "2026-12-01");
+	assert.equal(dateInZone("2026-12-02T07:30:00.000Z", "UTC"), "2026-12-02");
+	// no zone given means Phoenix: 6:30pm Dec 1 there, already Dec 2 in UTC
+	assert.equal(dateInZone("2026-12-02T01:30:00.000Z"), "2026-12-01");
+	// and Phoenix has no daylight saving: same offset in July
+	assert.equal(dateInZone("2026-07-02T06:59:00.000Z"), "2026-07-01");
+	assert.equal(dateInZone("2026-07-02T07:00:00.000Z"), "2026-07-02");
 	assert.equal(dateInZone("garbage"), "");
 	assert.equal(yamlScalar("Starsight"), "Starsight");
 	assert.equal(yamlScalar("No Finish Date: A Test"), '"No Finish Date: A Test"');
@@ -138,7 +144,7 @@ test("sync writes only new, complete reviews and reports the rest", async () => 
 			"---",
 			"title: The Left Hand of Darkness",
 			"author: Ursula K. Le Guin",
-			"date: 2026-12-01",
+			"date: 2026-12-02",
 			"rating: 5",
 			'isbn: "9780441478125"',
 			"---",
@@ -151,7 +157,7 @@ test("sync writes only new, complete reviews and reports the rest", async () => 
 
 	const noDate = fs.readFileSync(path.join(reviews, "no-finish-date-a-test.md"), "utf8");
 	assert.match(noDate, /^title: "No Finish Date: A Test"$/m);
-	assert.match(noDate, /^date: 2026-11-19$/m, "falls back to the review edit date, in Pacific time");
+	assert.match(noDate, /^date: 2026-11-19$/m, "falls back to the review edit date, in Phoenix time");
 	assert.match(noDate, /^isbn: "9781250386236"$/m, "ISBN-10 converted to ISBN-13");
 	const warn = report.added.find((r) => r.slug === "no-finish-date-a-test").warnings;
 	assert.equal(warn.length, 1);
@@ -346,7 +352,7 @@ test("end to end: new reviews become one commit and one new PR", async () => {
 	assert.equal(created.head, "bookorbit-sync");
 	assert.equal(created.base, "trunk");
 	assert.equal(created.title, "Add reviews from BookOrbit");
-	assert.match(created.body, /\*\*The Left Hand of Darkness\*\* by Ursula K\. Le Guin: 5 stars, finished 2026-12-01/);
+	assert.match(created.body, /\*\*The Left Hand of Darkness\*\* by Ursula K\. Le Guin: 5 stars, finished 2026-12-02/);
 	assert.match(created.body, /No ISBN in BookOrbit/);
 });
 

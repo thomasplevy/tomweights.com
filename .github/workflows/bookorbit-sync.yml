@@ -6,7 +6,7 @@ name: Sync BookOrbit reviews
 
 on:
   schedule:
-    - cron: "17 14 * * *" # daily, about 6-7am Pacific
+    - cron: "17 14 * * *" # daily, 7:17am in Phoenix
   workflow_dispatch:
     inputs:
       dry_run:
