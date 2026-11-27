@@ -1,0 +1,33 @@
+---
+layout: layouts/page.njk
+title: Reviews
+description: Book reviews, with a star rating and the day I finished each one.
+permalink: /reviews/
+---
+{% if collections.reviews.length %}
+<ul class="post-list review-list">
+	{% for review in collections.reviews %}
+	<li class="review-list__item">
+		{% if review.data.coverImage %}
+		<a href="{{ review.url }}" class="review-list__cover">
+			<figure class="book__cover">
+				<picture>
+					{% if review.data.coverImage.thumb.webpSrcset %}<source type="image/webp" srcset="{{ review.data.coverImage.thumb.webpSrcset }}" sizes="80px">{% endif %}
+					<img src="{{ review.data.coverImage.thumb.src }}"{% if review.data.coverImage.thumb.srcset %} srcset="{{ review.data.coverImage.thumb.srcset }}" sizes="80px"{% endif %} width="{{ review.data.coverImage.thumb.width }}" height="{{ review.data.coverImage.thumb.height }}" alt="{{ review.data.coverImage.alt }}">
+				</picture>
+			</figure>
+		</a>
+		{% endif %}
+		<div class="review-list__body">
+			<time datetime="{{ review.date | htmlDate }}">{{ review.date | readableDate }}</time>
+			<h2><a href="{{ review.url }}">{{ review.data.title }}</a></h2>
+			<p class="review-author">by {{ review.data.author }}</p>
+			<p class="review-rating" role="img" aria-label="Rated {{ review.data.rating }} out of 5">{{ review.data.rating | starIcons | safe }}</p>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+<p class="post-meta">Follow along with the <a href="/reviews/feed/">reviews feed</a>.</p>
+{% else %}
+<p>No reviews yet.</p>
+{% endif %}

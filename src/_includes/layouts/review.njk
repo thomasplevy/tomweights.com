@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+---
+<main id="content" class="content content--page">
+	<div class="page-header">
+		<h1>Reviews</h1>
+	</div>
+	<div class="entry">
+		<section class="book review">
+			<header class="review__header">
+				<h2 class="book__title">{{ title }}</h2>
+				<p class="review__byline">by {{ author }}</p>
+			</header>
+			<div class="book__layout">
+				{% if coverImage %}
+				<figure class="book__cover">
+					<picture>
+						{% if coverImage.page.webpSrcset %}<source type="image/webp" srcset="{{ coverImage.page.webpSrcset }}" sizes="(min-width: 40rem) 16rem, 90vw">{% endif %}
+						<img src="{{ coverImage.page.src }}"{% if coverImage.page.srcset %} srcset="{{ coverImage.page.srcset }}" sizes="(min-width: 40rem) 16rem, 90vw"{% endif %} width="{{ coverImage.page.width }}" height="{{ coverImage.page.height }}" alt="{{ coverImage.alt }}">
+					</picture>
+				</figure>
+				{% endif %}
+				<div class="book__meta">
+					<ul class="book__details">
+						<li><span class="review-rating" role="img" aria-label="Rated {{ rating }} out of 5">{{ rating | starIcons | safe }}</span></li>
+						<li><time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time></li>
+					</ul>
+					{% if isbn %}
+					<div class="book__actions">
+						<a class="button" href="{{ (bookshopIsbn or isbn) | bookshopUrl(bookshop.affiliateId) }}" rel="noopener">Buy on Bookshop.org</a>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</section>
+		{{ content | safe }}
+	</div>
+</main>

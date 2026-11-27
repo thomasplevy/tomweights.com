@@ -11,7 +11,7 @@
 	<meta property="og:site_name" content="{{ site.name }}">
 	<meta property="og:title" content="{{ title or site.name }}">
 	<meta property="og:description" content="{{ description or site.description }}">
-	<meta property="og:type" content="{% if '/blog/posts/' in page.inputPath %}article{% else %}website{% endif %}">
+	<meta property="og:type" content="{% if '/blog/posts/' in page.inputPath or '/reviews/' in page.inputPath %}article{% else %}website{% endif %}">
 	<meta property="og:url" content="{{ site.url }}{{ page.url }}">
 	{% if image %}
 	<meta property="og:image" content="{{ site.url }}{{ image }}">
