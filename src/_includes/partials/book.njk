@@ -2,7 +2,7 @@
 	<h3 class="book__title">{{ book.title }}</h3>
 	<div class="book__layout">
 		<figure class="book__cover">
-			<img src="{{ book.cover }}" alt="{{ book.alt }}" width="498" height="603">
+			<img src="{{ book.cover }}" alt="{{ book.alt }}" sizes="(min-width: 712px) 340px, 90vw">
 		</figure>
 		<div class="book__meta">
 			{% if book.links.length %}
