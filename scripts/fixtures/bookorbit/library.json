@@ -1,0 +1,278 @@
+{
+	"cards": [
+		{
+			"id": 101,
+			"status": "active",
+			"title": "The Left Hand of Darkness",
+			"authors": [
+				"Ursula K. Le Guin"
+			],
+			"rating": 5,
+			"isbn13": "9780441478125",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		{
+			"id": 102,
+			"status": "active",
+			"title": "Starsight",
+			"authors": [
+				"Brandon Sanderson"
+			],
+			"rating": 4,
+			"isbn13": "9780399555817",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		{
+			"id": 103,
+			"status": "active",
+			"title": "Rated But Never Reviewed",
+			"authors": [
+				"Some Author"
+			],
+			"rating": 3,
+			"isbn13": "9781111111111",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		{
+			"id": 104,
+			"status": "active",
+			"title": "No Finish Date: A Test",
+			"authors": [
+				"Test Author"
+			],
+			"rating": 2,
+			"isbn13": null,
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		{
+			"id": 105,
+			"status": "active",
+			"title": "Quotes \"and\" Colons",
+			"authors": [
+				"First Author",
+				"Second Author"
+			],
+			"rating": 4,
+			"isbn13": null,
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		{
+			"id": 106,
+			"status": "active",
+			"title": "Theo of Golden",
+			"authors": [
+				"Allen Levi"
+			],
+			"rating": 1,
+			"isbn13": "9780000000002",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		{
+			"id": 107,
+			"status": "active",
+			"title": "Ignored Book",
+			"authors": [
+				"Some Author"
+			],
+			"rating": 3,
+			"isbn13": "9782222222222",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		{
+			"id": 108,
+			"status": "active",
+			"title": "No Author Listed",
+			"authors": [],
+			"rating": 3,
+			"isbn13": "9783333333333",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		}
+	],
+	"details": {
+		"101": {
+			"id": 101,
+			"title": "The Left Hand of Darkness",
+			"authors": [
+				{
+					"id": 1,
+					"name": "Ursula K. Le Guin",
+					"sortName": null
+				}
+			],
+			"rating": 5,
+			"isbn13": "9780441478125",
+			"isbn10": "0441478123",
+			"personalNote": "A diplomat crosses an ice sheet.\r\n\r\nSecond paragraph, with *markdown*.\r\n",
+			"personalNoteUpdatedAt": "2026-12-02T04:00:00.000Z",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": "2026-12-02T03:30:00.000Z",
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		"103": {
+			"id": 103,
+			"title": "Rated But Never Reviewed",
+			"authors": [
+				{
+					"id": 1,
+					"name": "Some Author",
+					"sortName": null
+				}
+			],
+			"rating": 3,
+			"isbn13": "9781111111111",
+			"isbn10": null,
+			"personalNote": null,
+			"personalNoteUpdatedAt": null,
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": "2026-10-01T18:00:00.000Z",
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		"104": {
+			"id": 104,
+			"title": "No Finish Date: A Test",
+			"authors": [
+				{
+					"id": 1,
+					"name": "Test Author",
+					"sortName": null
+				}
+			],
+			"rating": 2,
+			"isbn13": null,
+			"isbn10": "1250386233",
+			"personalNote": "Colons and a missing date.",
+			"personalNoteUpdatedAt": "2026-11-20T02:00:00.000Z",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": null,
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		"105": {
+			"id": 105,
+			"title": "Quotes \"and\" Colons",
+			"authors": [
+				{
+					"id": 1,
+					"name": "First Author",
+					"sortName": null
+				},
+				{
+					"id": 2,
+					"name": "Second Author",
+					"sortName": null
+				}
+			],
+			"rating": 4,
+			"isbn13": null,
+			"isbn10": null,
+			"personalNote": "No ISBN on this one.",
+			"personalNoteUpdatedAt": "2026-09-05T19:00:00.000Z",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": "2026-09-05T19:00:00.000Z",
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		"107": {
+			"id": 107,
+			"title": "Ignored Book",
+			"authors": [
+				{
+					"id": 1,
+					"name": "Some Author",
+					"sortName": null
+				}
+			],
+			"rating": 3,
+			"isbn13": "9782222222222",
+			"isbn10": null,
+			"personalNote": "Should never be written.",
+			"personalNoteUpdatedAt": "2026-08-01T18:00:00.000Z",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": "2026-08-01T18:00:00.000Z",
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		},
+		"108": {
+			"id": 108,
+			"title": "No Author Listed",
+			"authors": [],
+			"rating": 3,
+			"isbn13": "9783333333333",
+			"isbn10": null,
+			"personalNote": "Has no author.",
+			"personalNoteUpdatedAt": "2026-07-01T18:00:00.000Z",
+			"readStatus": {
+				"status": "read",
+				"source": "manual",
+				"startedAt": null,
+				"finishedAt": "2026-07-01T18:00:00.000Z",
+				"updatedAt": "2026-11-30T00:00:00.000Z"
+			}
+		}
+	}
+}
