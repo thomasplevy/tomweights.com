@@ -20,12 +20,12 @@
 		{
 			"id": 102,
 			"status": "active",
-			"title": "Starsight",
+			"title": "Skyward",
 			"authors": [
 				"Brandon Sanderson"
 			],
 			"rating": 4,
-			"isbn13": "9780399555817",
+			"isbn13": "9780399555770",
 			"readStatus": {
 				"status": "read",
 				"source": "manual",
