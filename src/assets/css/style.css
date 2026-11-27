@@ -533,6 +533,11 @@ hr {
 	margin-top: 0.35em;
 }
 
+/* Permalink only; the index keeps its 1.1rem size. */
+.review .review-rating {
+	font-size: 1.875rem; /* 1.5 × the 1.25rem base */
+}
+
 .book__cover img {
 	border: 8px solid var(--color-contrast);
 	width: 100%;
