@@ -4,5 +4,7 @@
   "url": "https://tomweights.com",
   "author": "Thomas Patrick Levy",
   "description": "The official website of Thomas Patrick Levy",
-  "language": "en-US"
+  "language": "en-US",
+  "image": "/assets/img/social-default.png",
+  "imageAlt": "Thomas Patrick Levy in white monospace type on a dark background with a green bar along the left edge, under tomweights.com and above the words About, Blog, Code, and Poetry."
 }
