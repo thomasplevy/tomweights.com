@@ -2,6 +2,7 @@
   {
     "id": "idm",
     "title": "I Don't Mind if You're Feeling Alone",
+    "isbn": "9781936919086",
     "cover": "/assets/img/i-dont-mind-if-youre-feeling-alone.png",
     "alt": "Cover image for \"I Don't Mind if You're Feeling Alone\" by Thomas Patrick Levy",
     "links": [
@@ -10,8 +11,8 @@
         "url": "https://www.yesyesbooks.com/product-page/i-don-t-mind-if-you-re-feeling-alone"
       },
       {
-        "label": "Amazon",
-        "url": "https://www.amazon.com/Dont-Mind-Youre-Feeling-Alone/dp/1936919087"
+        "label": "Bookshop.org",
+        "bookshop": true
       }
     ],
     "details": [
@@ -57,7 +58,7 @@
     "links": [],
     "details": [
       "Published 8/15/2011",
-      "ISBN: 978-1-936919-05-",
+      "ISBN: 978-1-936919-06-2",
       "Saddle stapled chapbook",
       "5″ x 5″, 26 pages"
     ],

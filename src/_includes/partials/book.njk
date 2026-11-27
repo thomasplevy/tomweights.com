@@ -8,7 +8,11 @@
 			{% if book.links.length %}
 			<div class="book__actions">
 				{% for link in book.links %}
+				{% if link.bookshop %}
+				<a class="button" href="{{ book.isbn | bookshopUrl(bookshop.affiliateId) }}" rel="noopener">{{ link.label }}</a>
+				{% else %}
 				<a class="button" href="{{ link.url }}">{{ link.label }}</a>
+				{% endif %}
 				{% endfor %}
 			</div>
 			{% endif %}
