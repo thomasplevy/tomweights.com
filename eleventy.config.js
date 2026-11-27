@@ -1,7 +1,10 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { rssPlugin } = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
+	eleventyConfig.addPlugin(rssPlugin);
+
 	eleventyConfig.addPassthroughCopy("src/assets");
 	eleventyConfig.addPassthroughCopy({
 		"src/CNAME": "CNAME",

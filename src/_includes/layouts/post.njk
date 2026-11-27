@@ -10,5 +10,6 @@ layout: layouts/base.njk
 			<time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time>
 		</p>
 		{{ content | safe }}
+		<p class="subscribe">Prefer a feed reader? <a href="/feed/">Subscribe via RSS</a>.</p>
 	</div>
 </main>
