@@ -74,7 +74,7 @@ function tempReviews() {
 	const dir = fs.mkdtempSync(path.join(os.tmpdir(), "bookorbit-test-"));
 	const reviews = path.join(dir, "reviews");
 	fs.mkdirSync(reviews);
-	for (const name of ["starsight.md", "theo-of-golden.md"]) fs.copyFileSync(path.join(ROOT, "src/reviews", name), path.join(reviews, name));
+	for (const name of ["skyward.md", "theo-of-golden.md"]) fs.copyFileSync(path.join(ROOT, "src/reviews", name), path.join(reviews, name));
 	const ignore = path.join(dir, "ignore.txt");
 	fs.writeFileSync(ignore, "# test\n9782222222222  # Ignored Book\n");
 	return { dir, reviews, ignore };
@@ -107,8 +107,8 @@ test("helpers", () => {
 });
 
 test("renderReview matches the shape of the existing review files", () => {
-	const out = renderReview({ title: "Starsight", author: "Brandon Sanderson", date: "2026-09-18", rating: 4, isbn: "9780399555817" }, "Body.\r\n");
-	const existing = fs.readFileSync(path.join(ROOT, "src/reviews/starsight.md"), "utf8");
+	const out = renderReview({ title: "Skyward", author: "Brandon Sanderson", date: "2026-08-28", rating: 4, isbn: "9780399555770" }, "Body.\r\n");
+	const existing = fs.readFileSync(path.join(ROOT, "src/reviews/skyward.md"), "utf8");
 	assert.equal(out.split("\n").slice(0, 7).join("\n"), existing.split("\n").slice(0, 7).join("\n"));
 	assert.ok(out.endsWith("---\nBody.\n"));
 	assert.ok(!renderReview({ title: "X", author: "Y", date: "2026-01-01", rating: 3 }, "b").includes("isbn"));
@@ -118,8 +118,8 @@ test("readExisting reads slugs, titles, isbn, bookshopIsbn and the ignore list",
 	const { reviews, ignore } = tempReviews();
 	fs.copyFileSync(path.join(ROOT, "src/reviews/rendezvous-with-rama.md"), path.join(reviews, "rendezvous-with-rama.md"));
 	const { slugs, isbns } = readExisting(reviews, ignore);
-	assert.ok(slugs.has("starsight") && slugs.has("rendezvous-with-rama"));
-	assert.ok(isbns.has("9780399555817"));
+	assert.ok(slugs.has("skyward") && slugs.has("rendezvous-with-rama"));
+	assert.ok(isbns.has("9780399555770"));
 	assert.ok(isbns.has("9780358380221"), "bookshopIsbn counts");
 	assert.ok(isbns.has("9782222222222"), "ignore list counts");
 });
@@ -132,7 +132,7 @@ test("sync writes only new, complete reviews and reports the rest", async () => 
 	fake.server.close();
 
 	assert.deepEqual(report.added.map((r) => r.slug).sort(), ["no-finish-date-a-test", "quotes-and-colons", "the-left-hand-of-darkness"]);
-	assert.equal(report.skipped.existing, 3, "Starsight (isbn), Theo (slug) and the ignored book");
+	assert.equal(report.skipped.existing, 3, "Skyward (isbn), Theo (slug) and the ignored book");
 	assert.equal(report.skipped.noReview, 1);
 	assert.equal(report.skipped.incomplete.length, 1);
 	assert.match(report.skipped.incomplete[0], /No Author Listed/);
@@ -190,7 +190,7 @@ test("dry run writes nothing", async () => {
 	const report = await sync({ client, reviewsDir: reviews, ignoreFile: ignore, dryRun: true, log: () => {} });
 	fake.server.close();
 	assert.equal(report.added.length, 3);
-	assert.deepEqual(fs.readdirSync(reviews).sort(), ["starsight.md", "theo-of-golden.md"]);
+	assert.deepEqual(fs.readdirSync(reviews).sort(), ["skyward.md", "theo-of-golden.md"]);
 });
 
 test("client sends the bearer key, the rating filter, and pages through results", async () => {
@@ -231,7 +231,7 @@ test("server errors are retried, then reported", async () => {
 });
 
 test("PR helpers", () => {
-	const status = [" M src/reviews/starsight.md", "?? src/reviews/new-one.md", "?? src/assets/img/covers/9780441478125.jpg", "?? notes.txt", "A  src/assets/img/covers/9780441478125-160.webp", ""].join("\0");
+	const status = [" M src/reviews/skyward.md", "?? src/reviews/new-one.md", "?? src/assets/img/covers/9780441478125.jpg", "?? notes.txt", "A  src/assets/img/covers/9780441478125-160.webp", ""].join("\0");
 	assert.deepEqual(newFilesFromStatus(status), [
 		"src/assets/img/covers/9780441478125-160.webp",
 		"src/assets/img/covers/9780441478125.jpg",
@@ -286,7 +286,7 @@ function makeRepo() {
 	const dir = fs.mkdtempSync(path.join(os.tmpdir(), "bookorbit-e2e-"));
 	for (const sub of ["src/reviews", "src/assets/img/covers", "scripts"]) fs.mkdirSync(path.join(dir, sub), { recursive: true });
 	for (const f of ["sync-bookorbit-reviews.mjs", "open-bookorbit-pr.mjs"]) fs.copyFileSync(path.join(HERE, f), path.join(dir, "scripts", f));
-	for (const f of ["starsight.md", "theo-of-golden.md"]) fs.copyFileSync(path.join(ROOT, "src/reviews", f), path.join(dir, "src/reviews", f));
+	for (const f of ["skyward.md", "theo-of-golden.md"]) fs.copyFileSync(path.join(ROOT, "src/reviews", f), path.join(dir, "src/reviews", f));
 	fs.writeFileSync(path.join(dir, "scripts/bookorbit-ignore.txt"), "9782222222222\n");
 	spawnSync("git", ["init", "-q"], { cwd: dir });
 	spawnSync("git", ["add", "."], { cwd: dir });
@@ -322,7 +322,7 @@ test("the sync CLI fails with a clear message and no files when the key is wrong
 	assert.equal(run.code, 1);
 	assert.match(run.out, /returned 401/);
 	assert.ok(!run.out.includes("bok_wrong_key"));
-	assert.deepEqual(fs.readdirSync(path.join(dir, "src/reviews")).sort(), ["starsight.md", "theo-of-golden.md"]);
+	assert.deepEqual(fs.readdirSync(path.join(dir, "src/reviews")).sort(), ["skyward.md", "theo-of-golden.md"]);
 });
 
 test("end to end: new reviews become one commit and one new PR", async () => {
