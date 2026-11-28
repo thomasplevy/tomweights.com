@@ -1,0 +1,24 @@
+---
+layout: layouts/page.njk
+pagination:
+  data: collections.series
+  size: 1
+  alias: s
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "{{ s.name }}"
+  description: "Every part of {{ s.name }}, in order."
+permalink: "/blog/series/{{ s.name | slugify }}/"
+---
+<p>A series in {{ s.posts.length }} parts, best read in order.</p>
+<ol class="post-list post-list--series">
+	{% for post in s.posts %}
+	<li>
+		<time datetime="{{ post.date | htmlDate }}">Part {{ loop.index }} · {{ post.date | readableDate }}</time>
+		<h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+		{% if post.data.description %}
+		<p>{{ post.data.description }}</p>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ol>

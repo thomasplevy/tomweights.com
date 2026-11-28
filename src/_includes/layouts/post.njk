@@ -9,6 +9,7 @@ layout: layouts/base.njk
 		<p class="post-meta">
 			<time datetime="{{ page.date | htmlDate }}">{{ page.date | readableDate }}</time>
 		</p>
+		{% include "partials/post-taxonomy.njk" %}
 		{{ content | safe }}
 	</div>
 </main>

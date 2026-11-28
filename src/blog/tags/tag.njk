@@ -1,0 +1,25 @@
+---
+layout: layouts/page.njk
+pagination:
+  data: collections.postTags
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: "Tagged “{{ tag }}”"
+  description: "Posts tagged {{ tag }}."
+permalink: "/blog/tags/{{ tag | slugify }}/"
+---
+{% set tagged = collections[tag] | reverse %}
+<ul class="post-list">
+	{% for post in tagged %}
+	<li>
+		<time datetime="{{ post.date | htmlDate }}">{{ post.date | readableDate }}</time>
+		<h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+		{% if post.data.description %}
+		<p>{{ post.data.description }}</p>
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+<p><a href="/blog/tags/">All tags</a></p>

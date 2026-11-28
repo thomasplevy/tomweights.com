@@ -1,0 +1,16 @@
+---
+layout: layouts/page.njk
+title: Archive
+description: Every post on this blog, by year.
+permalink: /blog/archive/
+---
+{% for group in collections.postsByYear %}
+<h2 class="archive-year" id="y{{ group.year }}">{{ group.year }}</h2>
+<ul class="archive-list">
+	{% for post in group.posts %}
+	<li><a href="{{ post.url }}">{{ post.data.title }}</a> <time datetime="{{ post.date | htmlDate }}">{{ post.date | readableDate }}</time></li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>No posts yet.</p>
+{% endfor %}

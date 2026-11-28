@@ -377,6 +377,51 @@ h4 {
 	padding-left: 1.5em;
 }
 
+.post-tags,
+.blog-links {
+	font-size: var(--size-small);
+}
+
+.blog-links {
+	margin-bottom: var(--space-50);
+}
+
+.series-box {
+	padding: var(--space-20) var(--space-40);
+	border-left: 4px solid var(--color-secondary);
+	background-color: var(--color-tertiary);
+	font-size: var(--size-small);
+}
+
+.series-box p {
+	margin: 0;
+}
+
+.series-box ol {
+	margin: var(--space-20) 0 0;
+}
+
+.series-box [aria-current] {
+	color: var(--color-contrast);
+}
+
+.archive-list time {
+	display: block;
+	font-size: var(--size-small);
+	color: var(--color-primary);
+}
+
+.archive-list li + li,
+.tag-list li + li {
+	margin-top: var(--space-20);
+}
+
+.archive-year {
+	margin: var(--space-50) 0 var(--space-20);
+	font-size: var(--size-medium);
+	color: var(--color-primary);
+}
+
 .post-meta {
 	font-size: var(--size-small);
 	color: var(--color-primary);

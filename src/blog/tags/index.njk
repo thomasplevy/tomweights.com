@@ -1,0 +1,17 @@
+---
+layout: layouts/page.njk
+title: Tags
+description: Every topic I've written about on this blog.
+permalink: /blog/tags/
+---
+{% if collections.postTags.length %}
+<ul class="tag-list">
+	{% for tag in collections.postTags %}
+	{% set tagged = collections[tag] | default([]) %}
+	<li><a href="/blog/tags/{{ tag | slugify }}/">{{ tag }}</a> ({{ tagged.length }})</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>No tags yet.</p>
+{% endif %}
+<p><a href="/blog/">Back to the blog</a></p>
